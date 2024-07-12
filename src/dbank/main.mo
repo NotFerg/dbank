@@ -1,8 +1,10 @@
 import Debug "mo:base/Debug";
+import Int "mo:base/Int";
+import Time "mo:base/Time";
 
 actor DBank{
-  var currentValue = 300;
-  currentValue := 100; // use := to change value
+  stable var currentValue = 300; //stable retains value even after dfx deploy
+  //currentValue := 100; // use := to change value
 
   let id = 123456789; // let is constant
 
@@ -30,4 +32,6 @@ actor DBank{
   public query func checkBalance(): async Nat {
     return currentValue
   };
+
+  
 }
