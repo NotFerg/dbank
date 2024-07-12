@@ -15,6 +15,8 @@ actor DBank{
     Debug.print(debug_show(currentValue));
   };
 
+  //topUp();
+
   public func withdrawal (amount:Nat){
     let tempValue: Int = currentValue - amount;
     if(tempValue >= 0 ){
@@ -25,5 +27,7 @@ actor DBank{
     }
   };  
 
-  //topUp();
+  public query func checkBalance(): async Nat {
+    return currentValue
+  };
 }
