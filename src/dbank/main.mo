@@ -15,12 +15,13 @@ actor DBank{
     Debug.print(debug_show(currentValue));
   };
 
-  public func withdrawl (amount:Nat){
-    if(amount > currentValue){
-      Debug.print("Insufficient Balance");
-    }else{
+  public func withdrawal (amount:Nat){
+    let tempValue: Int = currentValue - amount;
+    if(tempValue >= 0 ){
       currentValue -= amount;
       Debug.print(debug_show(currentValue));
+    }else{
+      Debug.print("Amount too large,  currentValue less than zero")
     }
   };  
 
